@@ -26,12 +26,12 @@ def apply_mosaic(img, face):
     face_img = cv2.resize(face_img, (w, h), interpolation=cv2.INTER_AREA)
     img[y:y+h, x:x+w] = face_img
 
-def is_match(face_descriptor, threshold=0.7):
+def is_match(face_descriptor, threshold=0.9):
     distances = np.linalg.norm(known_face_descriptors - face_descriptor, axis=1)
     return np.any(distances < threshold)
 
 # 비디오 파일 로드
-cap = cv2.VideoCapture('video_data/yoonbin_with_mom.mp4')
+cap = cv2.VideoCapture('video_data/yoonbin_2.mp4')
 
 # 출력 비디오의 프레임 크기
 frame_width = int(cap.get(3))
